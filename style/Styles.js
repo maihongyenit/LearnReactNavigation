@@ -10,6 +10,9 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: 'bold',
   },
+  screenText: {
+    fontSize: 16,
+  },
 });
 
 export default styles;

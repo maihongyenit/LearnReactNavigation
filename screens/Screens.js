@@ -4,12 +4,12 @@ import {AppContext} from '../components/Context';
 import Navigators from './Navigators';
 
 const Screens = () => {
-  const someAppData = {
-    data1: {},
-    data2: 1,
+  // Way to pass props to Stack.Screen
+  const appData = {
+    appData: true,
   };
   return (
-    <AppContext.Provider value={someAppData}>
+    <AppContext.Provider value={appData}>
       <Navigators />
     </AppContext.Provider>
   );

@@ -4,9 +4,9 @@ import Setting from './Setting';
 import {AppContext} from '../../components/Context';
 
 const SettingContextWraper = (props) => {
-  const someAppData = useContext(AppContext);
+  const appData = useContext(AppContext);
 
-  return <Setting appData={someAppData} {...props} />;
+  return <Setting appData={appData} {...props} />;
 };
 
 export default SettingContextWraper;

@@ -11,10 +11,16 @@ const Navigators = () => {
   return (
     <Stack.Navigator
       initialRouteName="Home"
-      screenOptions={{headerShown: false}}>
+      screenOptions={{headerShown: true}}>
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Detail" component={Detail} />
-      <Stack.Screen name="Setting" component={SettingContextWraper} />
+      <Stack.Screen
+        name="Setting"
+        component={SettingContextWraper}
+        initialParams={{
+          inittial: true,
+        }}
+      />
     </Stack.Navigator>
   );
 };
