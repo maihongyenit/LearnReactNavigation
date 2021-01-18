@@ -18,7 +18,11 @@ const Home = ({navigation, route}) => {
       <Button
         title="Detail"
         onPress={() => {
-          navigation.navigate('Detail');
+          navigation.navigate('Detail', {
+            isActivityResult: false,
+            data: 'Setting data',
+            name: 'Detail Screen',
+          });
         }}
       />
       {/* Navigate with data */}
