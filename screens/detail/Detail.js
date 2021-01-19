@@ -36,6 +36,12 @@ const Detail = ({navigation}) => {
       <Text style={Styles.screenTitle}>Detail Screen</Text>
       {/* Count */}
       <Text style={Styles.screenText}>{count}</Text>
+      <Button
+        title="Open modal"
+        onPress={() => {
+          navigation.navigate('Modals');
+        }}
+      />
     </View>
   );
 };

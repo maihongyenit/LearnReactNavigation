@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import AuthNavigation from './AuthNavigation';
-import MainNavigation from './MainNavigation';
+import RootNavigation from './RootNavigation';
 import {LoggingContext} from '../components/Context';
 
 // const authScreens = {
@@ -28,7 +28,7 @@ const Navigators = () => {
         headerShown: false,
       }}>
       {isLogging ? (
-        <Stack.Screen name="Main" component={MainNavigation} />
+        <Stack.Screen name="Root" component={RootNavigation} />
       ) : (
         <Stack.Screen name="Auth" component={AuthNavigation} />
       )}
