@@ -4,20 +4,20 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Detail from './detail/Detail';
-import HomeNav from './home/HomeNav';
+import HomeStack from './home/HomeStack';
 import SettingContextWraper from './setting/SettingContextWraper';
 import CustomHeaderTitle from './header/CustomHeaderTitle';
 
 const Tab = createBottomTabNavigator();
 
-const MainNavigation = () => {
+const MainTabBar = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="HomeStack"
       screenOptions={({navigation, route}) => ({
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
-          if (route.name === 'Home') {
+          if (route.name === 'HomeStack') {
             iconName = focused ? 'airplane' : 'airplane-outline';
           } else if (route.name === 'Detail') {
             iconName = focused ? 'albums' : 'albums-outline';
@@ -35,10 +35,10 @@ const MainNavigation = () => {
         inactiveTintColor: 'black',
       }}>
       <Tab.Screen
-        name="Home"
-        component={HomeNav}
+        name="HomeStack"
+        component={HomeStack}
         options={{
-          title: 'Home Screen',
+          title: 'Home',
           tabBarBadge: 5,
         }}
       />
@@ -73,6 +73,6 @@ const MainNavigation = () => {
   );
 };
 
-export default MainNavigation;
+export default MainTabBar;
 
 const styles = StyleSheet.create({});

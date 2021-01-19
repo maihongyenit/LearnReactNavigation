@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 import {AppContext, LoggingContext} from '../components/Context';
-import Navigators from './Navigators';
+import ModalsNav from './ModalsNav';
 
 const Screens = () => {
   const [isLogging, setIsLogging] = useState(false);
@@ -12,7 +12,7 @@ const Screens = () => {
   return (
     <AppContext.Provider value={appData}>
       <LoggingContext.Provider value={{isLogging, setIsLogging}}>
-        <Navigators />
+        <ModalsNav />
       </LoggingContext.Provider>
     </AppContext.Provider>
   );

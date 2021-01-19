@@ -8,7 +8,7 @@ import HomeDetail from './HomeDetail';
 
 const Stack = createStackNavigator();
 
-const HomeNav = ({navigation, route}) => {
+const HomeStack = ({navigation, route}) => {
   const routeName = useMemo(() => getFocusedRouteNameFromRoute(route), [route]);
 
   useLayoutEffect(() => {
@@ -31,6 +31,6 @@ const HomeNav = ({navigation, route}) => {
   );
 };
 
-export default HomeNav;
+export default HomeStack;
 
 const styles = StyleSheet.create({});

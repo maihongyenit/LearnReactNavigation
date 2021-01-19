@@ -3,19 +3,22 @@ import {StyleSheet} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Modals from './modals/Modals';
-import MainNavigation from './MainNavigation';
+import RootStack from './RootStack';
 
 const Stack = createStackNavigator();
 
-const RootNavigation = () => {
+const ModalsNav = () => {
   return (
-    <Stack.Navigator mode="modal" headerMode="none">
-      <Stack.Screen name="Main" component={MainNavigation} />
+    <Stack.Navigator
+      mode="modal"
+      headerMode="none"
+      initialRouteName="RootStack">
+      <Stack.Screen name="RootStack" component={RootStack} />
       <Stack.Screen name="Modals" component={Modals} />
     </Stack.Navigator>
   );
 };
 
-export default RootNavigation;
+export default ModalsNav;
 
 const styles = StyleSheet.create({});
