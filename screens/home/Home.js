@@ -50,6 +50,13 @@ const Home = ({navigation, route}) => {
           setIsLogging(false);
         }}
       />
+      {/* HomeDetail */}
+      <Button
+        title="HomeDetail"
+        onPress={() => {
+          navigation.navigate('HomeDetail');
+        }}
+      />
     </View>
   );
 };
