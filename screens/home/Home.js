@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import {StyleSheet, Text, View, Button} from 'react-native';
+import {useFocusEffect} from '@react-navigation/native';
 
 import Styles from '../../style/Styles';
 import {LoggingContext} from '../../components/Context';
@@ -7,6 +8,10 @@ import {LoggingContext} from '../../components/Context';
 const Home = ({navigation, route}) => {
   const {isActivityResult, data} = (route && route.params) || {};
   const {setIsLogging} = useContext(LoggingContext);
+
+  useFocusEffect(() => {
+    console.log('Home screen is focus');
+  });
 
   return (
     <View style={Styles.container}>
