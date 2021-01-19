@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Detail from './detail/Detail';
@@ -27,6 +28,9 @@ const Navigators = () => {
           title: route.params.name,
           headerTitle: (props) => (
             <CustomHeaderTitle {...props} title="Detail header" />
+          ),
+          headerRight: () => (
+            <Button title="Click" onPress={() => alert('Btn clicked')} />
           ),
           headerStyle: {
             backgroundColor: 'red',
