@@ -1,54 +1,37 @@
-import React from 'react';
-import {Button} from 'react-native';
+import React, {useContext} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
-import Detail from './detail/Detail';
-import Home from './home/Home';
-import SettingContextWraper from './setting/SettingContextWraper';
-import CustomHeaderTitle from './header/CustomHeaderTitle';
+import AuthNavigation from './AuthNavigation';
+import MainNavigation from './MainNavigation';
+import {LoggingContext} from '../components/Context';
+
+// const authScreens = {
+//   Welcome: Welcome,
+//   SignIn: SignIn,
+//   SignUp: SignUp,
+// };
+
+// const mainScreens = {
+//   Home: Home,
+//   Detail: Detail,
+//   Setting: SettingContextWraper,
+// };
 
 const Stack = createStackNavigator();
 
 const Navigators = () => {
+  const {isLogging} = useContext(LoggingContext);
+
   return (
     <Stack.Navigator
-      initialRouteName="Home"
-      screenOptions={{headerShown: true}}>
-      <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{
-          title: 'Home Screen',
-        }}
-      />
-      <Stack.Screen
-        name="Detail"
-        component={Detail}
-        options={({navigation, route}) => ({
-          title: route.params.name,
-          headerTitle: (props) => (
-            <CustomHeaderTitle {...props} title="Detail header" />
-          ),
-          headerRight: () => (
-            <Button title="Click" onPress={() => alert('Btn clicked')} />
-          ),
-          headerStyle: {
-            backgroundColor: 'red',
-          },
-          headerTintColor: 'white',
-          headerTitleStyle: {
-            color: 'black',
-            fontWeight: 'bold',
-          },
-        })}
-      />
-      <Stack.Screen
-        name="Setting"
-        component={SettingContextWraper}
-        initialParams={{
-          inittial: true,
-        }}
-      />
+      screenOptions={{
+        headerShown: false,
+      }}>
+      {isLogging ? (
+        <Stack.Screen name="Main" component={MainNavigation} />
+      ) : (
+        <Stack.Screen name="Auth" component={AuthNavigation} />
+      )}
     </Stack.Navigator>
   );
 };

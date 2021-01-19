@@ -1,16 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-import {AppContext} from '../components/Context';
+import {AppContext, LoggingContext} from '../components/Context';
 import Navigators from './Navigators';
 
 const Screens = () => {
+  const [isLogging, setIsLogging] = useState(false);
   // Way to pass props to Stack.Screen
   const appData = {
     appData: true,
   };
   return (
     <AppContext.Provider value={appData}>
-      <Navigators />
+      <LoggingContext.Provider value={{isLogging, setIsLogging}}>
+        <Navigators />
+      </LoggingContext.Provider>
     </AppContext.Provider>
   );
 };

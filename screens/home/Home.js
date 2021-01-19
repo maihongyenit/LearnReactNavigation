@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {StyleSheet, Text, View, Button} from 'react-native';
 
 import Styles from '../../style/Styles';
+import {LoggingContext} from '../../components/Context';
 
 const Home = ({navigation, route}) => {
   const {isActivityResult, data} = (route && route.params) || {};
+  const {setIsLogging} = useContext(LoggingContext);
+
   return (
     <View style={Styles.container}>
       <Text style={Styles.screenTitle}>Home Screen</Text>
@@ -33,6 +36,13 @@ const Home = ({navigation, route}) => {
             isActivityResult: false,
             data: 'Setting data',
           });
+        }}
+      />
+      {/* Fall back to Welcome */}
+      <Button
+        title="Sign Out"
+        onPress={() => {
+          setIsLogging(false);
         }}
       />
     </View>
